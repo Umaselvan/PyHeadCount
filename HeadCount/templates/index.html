@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>
+        BNY Mellon Technology - Head Count
+    </title>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+             <ul class=flashes>
+                {% for category, message in messages %}
+                     <li class="{{ category }}">{{ message }}</li>
+                 {% endfor %}
+             </ul>
+        {% endif %}
+    {% endwith %}
+</head>
+
+<body>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}"> 
+    <h1> Head Count </h1>
+     <h2> Upload new File </h2>
+      <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+</body>
+
+</html>

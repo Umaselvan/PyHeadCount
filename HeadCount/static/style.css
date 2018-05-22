@@ -1,0 +1,39 @@
+html {
+  background-color: linen;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+h2, form, input {   
+    text-align: center;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    padding: 8px 16px;    
+    margin: 2px 1px;
+    cursor: pointer;
+}
+
+input[type=file] {
+    background-color: thistle;    
+}
+
+tr:nth-child(odd)       { background-color:#eee; }
+tr:nth-child(even)  { background-color:#fff; }
+
+tr:hover            { background-color: #ffff99;}
+
+
+li {   
+   
+    border: none;    
+    color: maroon;
+    width : 50%
+}
