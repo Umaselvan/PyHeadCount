@@ -48,7 +48,12 @@ def main():
 
 @app.route('/table/<filename>')
 def table_view(filename):
-    xlsx = pd.read_excel(os.path.join(app.config['UPLOAD_FOLDER'], filename), na_filter=False)
+    try:
+        xlsx = pd.read_excel(os.path.join(app.config['UPLOAD_FOLDER'], filename), na_filter=False)
+    except IOError as e:
+        print(e.errno)
+        return render_template('404error.html'), 404
+    
     return render_template("tableview.html", tables = [xlsx.to_html(classes=["table-bordered", "table-striped", "table-hover"])])
 
 def page_not_found(e):
