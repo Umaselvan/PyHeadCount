@@ -51,6 +51,10 @@ def table_view(filename):
     xlsx = pd.read_excel(os.path.join(app.config['UPLOAD_FOLDER'], filename), na_filter=False)
     return render_template("tableview.html", tables = [xlsx.to_html(classes=["table-bordered", "table-striped", "table-hover"])])
 
+def page_not_found(e):
+  return render_template('404error.html'), 404
+
+app.register_error_handler(404, page_not_found)
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
