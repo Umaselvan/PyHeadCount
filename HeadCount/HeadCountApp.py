@@ -8,7 +8,7 @@ import pandas as pd
 UPLOAD_FOLDER = os.path.expanduser('~') 
 #str(pathlib.Path.home())
 #os.path.expanduser('~') 
-# 'C:/Users/L. RAMYA/'
+
 ALLOWED_EXTENSIONS = set(['xlsx', 'xls', 'csv'])
 
 
@@ -48,7 +48,7 @@ def main():
 
 @app.route('/table/<filename>')
 def table_view(filename):
-    xlsx = pd.read_excel(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    xlsx = pd.read_excel(os.path.join(app.config['UPLOAD_FOLDER'], filename), na_filter=False)
     return render_template("tableview.html", tables = [xlsx.to_html(classes=["table-bordered", "table-striped", "table-hover"])])
 
 
